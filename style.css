@@ -61,6 +61,11 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    
+}
+
+.playlist:hover {
+    background-color: #6c6c6c85;
 }
 
 .playlist div {
@@ -70,6 +75,7 @@ body {
 }
 
 .playlist img {
+    margin:10px;
     width: 60%;
     aspect-ratio: 1 /1;
     object-fit: cover;
@@ -89,9 +95,37 @@ body {
 .playlist-head {
     flex: 1;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     font-size: 50pt;
+    font-weight: bold;
+    width: 90%;
+}
+
+#playlist-name{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+#left-play, #right-play {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    color: grey;
+    background-color: rgb(68, 68, 68);
+
+}
+
+#left-play:hover , #right-play:hover{
+    color:white;
 }
 
 /*------------------------Song list-----------------------------*/
@@ -175,11 +209,15 @@ body {
 
 #next {
     margin-left: 5px;
+    color:rgb(205, 205, 205);
 }
 
 #previous {
     margin-right: 5px;
+    color:rgb(205, 205, 205);
 }
+
+
 
 .play-box {
     display: flex;
@@ -189,8 +227,19 @@ body {
 }
 
 
+
 .fa-solid {
     font-size: 17pt;
+}
+
+#playbutton:hover{
+    font-size:25pt;
+    cursor: pointer;
+}
+
+#previous:hover, #next:hover {
+    color:white;
+    cursor: pointer;
 }
 
 #repeat {
@@ -198,6 +247,12 @@ body {
     font-size: 12pt;
     right: 150px;
     top: 32px;
+    color:rgb(184, 184, 184);
+}
+
+#repeat:hover{
+    cursor: pointer;
+    color: white;
 }
 
 #progress-bar,
@@ -216,7 +271,7 @@ body {
 
 #progress-circle {
     position: absolute;
-    right: -1px;
+    right: -5px;
     top: -3.5px;
     width: 10px;
     height: 10px;
@@ -230,6 +285,8 @@ body {
 #progress-bar:hover #progress-circle {
     opacity: 1;
 }
+
+
 
 .now-playing {
     position: absolute;

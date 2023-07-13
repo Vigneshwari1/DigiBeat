@@ -38,8 +38,31 @@ document.getElementById("playing-artist-name").innerHTML = songlist[playingid].a
 let royalty = document.getElementById("royalty-free");
 let ncs = document.getElementById("ncs");
 
+let playlist = [ncs,royalty];
+
+let currentplaylistid = 0;
+
+let leftplaylist = document.getElementById("left-play");
+let rightplaylist = document.getElementById("right-play");
+
+leftplaylist.onclick = function() {
+    currentplaylistid--;
+    if(currentplaylistid < 0 ){
+       currentplaylistid = playlist.length -1;
+    }
+    playlist[currentplaylistid].click();
+}
+
+rightplaylist.onclick = function() {
+    currentplaylistid++;
+    if(currentplaylistid >= playlist.length ){
+       currentplaylistid = 0;
+    }
+    playlist[currentplaylistid].click();
+}
 
 royalty.onclick = function () {
+    currentplaylistid = 1;
     songlist = [
         { songname: "Volcano", artist: "Jim Yosef", filepath: "royalty/Jim Yosef - Volcano (feat. Scarlett).mp3", coverpath: "royalty cover/Jim Yosef - Volcano (feat. Scarlett).jpg" },
         { songname: "What You Gonna Do", artist: "MADZI", filepath: "royalty/MADZI - What You Gonna Do.mp3", coverpath: "royalty cover/MADZI - What You Gonna Do.jpg" },
@@ -51,6 +74,7 @@ royalty.onclick = function () {
 }
 
 ncs.onclick = function () {
+    currentplaylistid = 0;
     songlist = [
         { songname: "Maria", artist: "ASHWOOD", filepath: "/songs/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).mp3", coverpath: "/song cover/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).jpg" },
         { songname: "Over The Sun (Pt. 2)", artist: "Coopex", filepath: "/songs/Coopex - Over The Sun (Pt. 2).mp3", coverpath: "/song cover/Coopex - Over The Sun (Pt. 2).jpg" },
