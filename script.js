@@ -11,7 +11,7 @@ let playingsong;
 let playingid;
 let repeatflag = false;
 songlist = [
-    { songname: "Maria", artist: "ASHWOOD", filepath: "/songs/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).mp3", coverpath: "/song cover/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).jpg" },
+    { songname: "Maria (ft. Blooom & Ghost’n’Ghost)", artist: "ASHWOOD", filepath: "/songs/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).mp3", coverpath: "/song cover/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).jpg" },
     { songname: "Over The Sun (Pt. 2)", artist: "Coopex", filepath: "/songs/Coopex - Over The Sun (Pt. 2).mp3", coverpath: "/song cover/Coopex - Over The Sun (Pt. 2).jpg" },
     { songname: "Fly", artist: "Kage & JaySounds", filepath: "songs/Kage & JaySounds - Fly.mp3", coverpath: "song cover/Kage & JaySounds - Fly.jpg" },
     { songname: "Lonely Hour", artist: "MAD SNAX, Poylow, New Beat Order", filepath: "songs/MAD SNAX, Poylow, New Beat Order - Lonely Hour.mp3", coverpath: "song cover/MAD SNAX, Poylow, New Beat Order - Lonely Hour.jpg" },
@@ -113,8 +113,8 @@ royalty.onclick = function () {
 ncs.onclick = function () {
     currentplaylistid = 0;
     songlist = [
-        { songname: "Maria", artist: "ASHWOOD", filepath: "/songs/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).mp3", coverpath: "/song cover/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).jpg" },
-        { songname: "Over The Sun (Pt. 2)", artist: "Coopex", filepath: "/songs/Coopex - Over The Sun (Pt. 2).mp3", coverpath: "/song cover/Coopex - Over The Sun (Pt. 2).jpg" },
+        { songname: "Maria (ft. Blooom & Ghost’n’Ghost)", artist: "ASHWOOD", filepath: "songs/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).mp3", coverpath: "/song cover/ASHWOOD - Maria (ft. Blooom & Ghost’n’Ghost).jpg" },
+        { songname: "Over The Sun (Pt. 2)", artist: "Coopex", filepath: "songs/Coopex - Over The Sun (Pt. 2).mp3", coverpath: "/song cover/Coopex - Over The Sun (Pt. 2).jpg" },
         { songname: "Fly", artist: "Kage & JaySounds", filepath: "songs/Kage & JaySounds - Fly.mp3", coverpath: "song cover/Kage & JaySounds - Fly.jpg" },
         { songname: "Lonely Hour", artist: "MAD SNAX, Poylow, New Beat Order", filepath: "songs/MAD SNAX, Poylow, New Beat Order - Lonely Hour.mp3", coverpath: "song cover/MAD SNAX, Poylow, New Beat Order - Lonely Hour.jpg" },
         { songname: "Lachrymose", artist: "Maze & Trinist", filepath: "songs/Maze & Trinist - Lachrymose.mp3", coverpath: "song cover/Maze & Trinist - Lachrymose.jpg" },
