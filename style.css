@@ -217,16 +217,12 @@ body {
     color:rgb(205, 205, 205);
 }
 
-
-
 .play-box {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 15%;
 }
-
-
 
 .fa-solid {
     font-size: 17pt;
@@ -285,8 +281,6 @@ body {
 #progress-bar:hover #progress-circle {
     opacity: 1;
 }
-
-
 
 .now-playing {
     position: absolute;

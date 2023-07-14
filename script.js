@@ -41,9 +41,30 @@ let ncs = document.getElementById("ncs");
 let playlist = [ncs,royalty];
 
 let currentplaylistid = 0;
+playlist[currentplaylistid].style.backgroundColor = "#6c6c6cb0";
 
 let leftplaylist = document.getElementById("left-play");
 let rightplaylist = document.getElementById("right-play");
+
+
+//replacing placeholder with actual song details
+function setsong() {
+    song.forEach((element, i) => {
+        element.getElementsByTagName("img")[0].src = songlist[i].coverpath;
+        element.getElementsByClassName("song-name")[0].innerText = songlist[i].songname;
+        element.getElementsByClassName("artist-name")[0].innerText = songlist[i].artist;
+        element.id = i;
+        let e = new Audio(songlist[i].filepath);
+        e.addEventListener('loadedmetadata', function () {
+            let zero = "";
+            if (e.duration % 60 < 10) {
+                zero = 0;
+            }
+            element.getElementsByClassName("duration")[0].innerText = Math.floor(e.duration / 60) + ":" + zero + Math.floor(e.duration % 60);
+        })
+    })
+}
+setsong();
 
 leftplaylist.onclick = function() {
     currentplaylistid--;
@@ -61,6 +82,20 @@ rightplaylist.onclick = function() {
     playlist[currentplaylistid].click();
 }
 
+const clearplaylist = () => {
+    Array.from(document.getElementsByClassName('playlist')).forEach((element) => {
+        element.style.backgroundColor = "rgba(255, 255, 255, 0)";
+        element.addEventListener("mouseover", function() {
+            if(element != playlist[currentplaylistid])
+             element.style.backgroundColor = "#6c6c6c85";
+         });
+         element.addEventListener("mouseout", function() {
+            if(element != playlist[currentplaylistid])
+             element.style.backgroundColor = "rgba(255, 255, 255, 0)";
+         });
+    })
+}
+
 royalty.onclick = function () {
     currentplaylistid = 1;
     songlist = [
@@ -69,8 +104,10 @@ royalty.onclick = function () {
         { songname: "Need You", artist: "Yonexx & lunar", filepath: "royalty/Yonexx & lunar - Need You.mp3", coverpath: "royalty cover/Yonexx & lunar - Need You.jpg" }
         //{songname: "", artist: "", filepath: "", coverpath: ""}
     ]
-    document.getElementById("playlist-name").innerHTML = "Royalty Free";
-    playlistsetting();
+    document.getElementById("playlist-name").innerHTML = "Royalty Free"; 
+    clearplaylist();
+    royalty.style.backgroundColor = "#6c6c6cb0";
+    playlistsetting();  
 }
 
 ncs.onclick = function () {
@@ -89,6 +126,8 @@ ncs.onclick = function () {
         //{songname: "", artist: "", filepath: "", coverpath: ""}
     ]
     document.getElementById("playlist-name").innerHTML = "NCS";
+    clearplaylist();
+    ncs.style.backgroundColor = "#6c6c6cb0";
     playlistsetting();
 }
 
@@ -111,6 +150,20 @@ function playlistsetting() {
     updateontime();
 }
 
+//
+const clearselect = () => {
+    Array.from(document.getElementsByClassName('song')).forEach((element) => {
+        element.style.backgroundColor = "rgba(255, 255, 255, 0)";
+        element.addEventListener("mouseover", function() {
+            if(element.id!=playingid)
+            element.style.backgroundColor = "#6c6c6c85";
+        });
+        element.addEventListener("mouseout", function() {
+            if(element.id!=playingid)
+            element.style.backgroundColor = "rgba(255, 255, 255, 0)";
+        });
+    })
+}
 
 //duration of playing song
 function nowplaying() {
@@ -122,29 +175,11 @@ function nowplaying() {
             zero = 0;
         }
         document.getElementById("playing-duration").innerHTML = Math.floor(playingsong.duration / 60) + ":" + zero + Math.floor(playingsong.duration % 60);
+        clearselect();
+        document.getElementById(playingid).style.backgroundColor = "#6c6c6cb0"; 
     })
 }
-
-//replacing placeholder with actual song details
-function setsong() {
-    song.forEach((element, i) => {
-        element.getElementsByTagName("img")[0].src = songlist[i].coverpath;
-        element.getElementsByClassName("song-name")[0].innerText = songlist[i].songname;
-        element.getElementsByClassName("artist-name")[0].innerText = songlist[i].artist;
-        element.id = i;
-        let e = new Audio(songlist[i].filepath);
-        e.addEventListener('loadedmetadata', function () {
-            let zero = "";
-            if (e.duration % 60 < 10) {
-                zero = 0;
-            }
-            element.getElementsByClassName("duration")[0].innerText = Math.floor(e.duration / 60) + ":" + zero + Math.floor(e.duration % 60);
-        })
-    })
-}
-setsong();
-//clicking on playlist2
-
+nowplaying();
 
 //stop rotating the album cover
 const stoprotate = () => {
