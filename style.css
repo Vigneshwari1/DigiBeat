@@ -97,7 +97,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 5%;
     font-size: 50pt;
     font-weight: bold;
     width: 90%;
@@ -241,7 +241,7 @@ body {
 #repeat {
     position: absolute;
     font-size: 12pt;
-    right: 150px;
+    right: 20%;
     top: 32px;
     color:rgb(184, 184, 184);
 }
@@ -257,6 +257,10 @@ body {
     width: 480px;
     border-radius: 2.5px;
     background-color: gray;
+}
+
+#progress-bar{
+    width:80%;
 }
 
 #progressed {
@@ -286,7 +290,7 @@ body {
     position: absolute;
     width: 25%;
     top: 20px;
-    left: 80px;
+    left: 12%;
     font-weight: bold;
     font-size: 12pt;
     height: 40px;
@@ -321,9 +325,15 @@ body {
 }
 
 #playing-time {
-    left: 35px;
+    left: 5%;
 }
 
 #playing-duration {
-    right: 35px;
+    right: 5%;
+}
+
+@media (max-width:850px){
+    .playing-bar{
+        width:40%;
+    }
 }
